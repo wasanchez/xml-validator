@@ -1,9 +1,6 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-using System.Xml.Linq;
-using XML.Validator.Elements;
+﻿using XML.Validator.Elements; 
 
-namespace XML.Validator
+namespace XML.Validator.Exceptions
 {
 	public static class XmlStringExtensions
 	{
@@ -17,7 +14,9 @@ namespace XML.Validator
 			string elementName = string.Empty;
 			int startTokenIndex = 0;
 			int endTokenIndex = 0;
-			if (string.IsNullOrWhiteSpace(xmlFragment) || !xmlFragment.HasTokens())
+            //Validates if the xml is not empty and if the string contains valid tokens
+            //Otherwihse is invalid element
+            if (string.IsNullOrWhiteSpace(xmlFragment) || !xmlFragment.HasTokens())
 				return elementName;
 
 			//Finds the token index
@@ -43,6 +42,8 @@ namespace XML.Validator
 			string element = string.Empty;
 			int startTokenIndex = 0;
 			int endTokenIndex = 0;
+			//Validates if the xml is not empty and if the string contains valid tokens
+			//Otherwihse is invalid element
 			if (string.IsNullOrWhiteSpace(xmlFragment) || !xmlFragment.HasTokens())
 				return element;
 
